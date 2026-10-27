@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import WorkerProfile from "./modules/worker-profile/WorkerProfile.jsx";
+import EmployerJobs from "./modules/employer-jobs/EmployerJobs.jsx";
 
 const API_URL = "http://localhost:5000/api/auth";
 const PROFILE_URL = "http://localhost:5000/api/users/me";
@@ -576,6 +578,25 @@ function App() {
               <button className="nav-item" onClick={editProfile}>
                 Edit profile
               </button>
+
+              <button
+                className={
+                  page === "workerProfile" ? "nav-item active" : "nav-item"
+                }
+                onClick={() => setPage("workerProfile")}
+              >
+                Worker Profile
+              </button>
+
+              {currentUser?.role === "employer" && (
+                <button
+                  className="nav-link employer-jobs-nav"
+                  onClick={() => setPage("employerJobs")}
+                >
+                  Employer Jobs
+                </button>
+              )}
+
               <button className="nav-logout" onClick={logout}>
                 Log out
               </button>
@@ -1611,6 +1632,10 @@ function App() {
             </div>
           </form>
         </main>
+      )}
+      {page === "workerProfile" && currentUser && <WorkerProfile />}
+      {page === "employerJobs" && currentUser?.role === "employer" && (
+        <EmployerJobs />
       )}
 
       <footer className="footer">

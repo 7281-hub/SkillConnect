@@ -1872,3 +1872,19 @@ button:disabled {
   line-height: 1;
   box-shadow: 0 0 12px rgba(167, 139, 250, 0.25);
 }
+.employer-jobs-nav {
+  background: rgba(99, 102, 241, 0.12);
+  color: #c7d2fe;
+  border: 1px solid rgba(129, 140, 248, 0.25);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.employer-jobs-nav:hover {
+  background: rgba(99, 102, 241, 0.22);
+  color: #ffffff;
+}

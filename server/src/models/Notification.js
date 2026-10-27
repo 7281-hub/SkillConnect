@@ -21,6 +21,7 @@ const notificationSchema = new mongoose.Schema(
       enum: [
         "connection_request",
         "connection_accepted",
+        "connection_rejected"
       ],
       required: true,
     },
